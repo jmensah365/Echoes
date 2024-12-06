@@ -1,5 +1,7 @@
 package com.mensahj.echoes_backend.Models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -23,6 +25,7 @@ public class MemoryMetadata {
     //Value = (1920x1080)
     private String value;
 
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "memory_id")
     private Memories memory;
