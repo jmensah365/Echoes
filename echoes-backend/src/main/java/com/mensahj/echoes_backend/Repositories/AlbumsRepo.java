@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.mensahj.echoes_backend.Models.Albums;
 
 public interface AlbumsRepo extends JpaRepository<Albums, Integer>{
-    
+    void deleteByTitle (String title);
 }

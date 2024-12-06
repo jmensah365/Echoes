@@ -2,17 +2,14 @@ package com.mensahj.echoes_backend.Services;
 
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.mensahj.echoes_backend.Models.Albums;
 import com.mensahj.echoes_backend.Models.AlbumsDTO;
 import com.mensahj.echoes_backend.Models.Memories;
 import com.mensahj.echoes_backend.Repositories.AlbumsRepo;
-import com.mensahj.echoes_backend.Repositories.MemoryRepo;
 
 import jakarta.transaction.Transactional;
 

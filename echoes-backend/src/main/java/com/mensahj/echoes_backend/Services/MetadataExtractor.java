@@ -1,5 +1,4 @@
 package com.mensahj.echoes_backend.Services;
-import java.io.File;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,13 +19,12 @@ public class MetadataExtractor {
         try (InputStream inputStream = photoFile.getInputStream()) {
             Metadata metadata = ImageMetadataReader.readMetadata(inputStream);
 
-            List<String> allowedTags = List.of("");
 
             for (Directory directory : metadata.getDirectories()) {
                 for (Tag tag : directory.getTags()) {
                     MemoryMetadata memoryMetadata = new MemoryMetadata();
                     memoryMetadata.setKey(tag.getTagName());
-                        // Sanitize value to remove null bytes
+                    // Sanitize value to remove null bytes
                     String sanitizedDescription = tag.getDescription() != null ? tag.getDescription().replace("\u0000", "") : null;
                     memoryMetadata.setValue(sanitizedDescription);
                     metadataList.add(memoryMetadata);
