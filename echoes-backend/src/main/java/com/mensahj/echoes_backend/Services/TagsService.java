@@ -55,9 +55,17 @@ public class TagsService {
         return tagsRepo.save(tag);
     }
 
+    @Transactional
     public void deleteTagById(int id){
         if(!tagsRepo.existsById(id)) throw new NoSuchElementException("Tag with id " + id + " does not exist");
         tagsRepo.deleteById(id);
+    }
+
+    public Tags convertToTags(TagsDTO tagDTO){
+        Tags tag = new Tags();
+        tag.setName(tagDTO.getName());
+
+        return tag;
     }
 
 
