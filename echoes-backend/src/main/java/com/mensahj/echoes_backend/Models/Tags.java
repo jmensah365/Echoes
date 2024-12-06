@@ -1,6 +1,10 @@
 package com.mensahj.echoes_backend.Models;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -29,12 +33,13 @@ public class Tags {
     private String name;
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JsonManagedReference
     @JoinTable(
         name = "memory_tags",
         joinColumns = @JoinColumn(name = "tag_id"),
         inverseJoinColumns = @JoinColumn(name = "memory_id")
     )
-    private List<Memories> memories;
+    private Set<Memories> memories = new HashSet<>();
 
 
     public Integer getTagId() {
@@ -57,12 +62,12 @@ public class Tags {
     }
 
 
-    public List<Memories> getMemories() {
+    public Set<Memories> getMemories() {
         return memories;
     }
 
 
-    public void setMemories(List<Memories> memories) {
+    public void setMemories(Set<Memories> memories) {
         this.memories = memories;
     }
 

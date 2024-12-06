@@ -3,6 +3,9 @@ package com.mensahj.echoes_backend.Models;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -32,8 +35,10 @@ public class Albums {
     private String description;
 
     @Column(nullable = false, updatable = false)
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime createdAt = LocalDateTime.now();
 
+    @JsonManagedReference
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
         name = "album_memories", 
@@ -41,6 +46,12 @@ public class Albums {
         inverseJoinColumns = @JoinColumn(name = "memory_id")
     )
     private List<Memories> memories;
+
+    
+
+    public Albums() {
+    }
+
 
     public Integer getAlbum_id() {
         return album_id;
@@ -81,6 +92,59 @@ public class Albums {
     public void setMemories(List<Memories> memories) {
         this.memories = memories;
     }
+
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((album_id == null) ? 0 : album_id.hashCode());
+        result = prime * result + ((title == null) ? 0 : title.hashCode());
+        result = prime * result + ((description == null) ? 0 : description.hashCode());
+        result = prime * result + ((createdAt == null) ? 0 : createdAt.hashCode());
+        result = prime * result + ((memories == null) ? 0 : memories.hashCode());
+        return result;
+    }
+
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Albums other = (Albums) obj;
+        if (album_id == null) {
+            if (other.album_id != null)
+                return false;
+        } else if (!album_id.equals(other.album_id))
+            return false;
+        if (title == null) {
+            if (other.title != null)
+                return false;
+        } else if (!title.equals(other.title))
+            return false;
+        if (description == null) {
+            if (other.description != null)
+                return false;
+        } else if (!description.equals(other.description))
+            return false;
+        if (createdAt == null) {
+            if (other.createdAt != null)
+                return false;
+        } else if (!createdAt.equals(other.createdAt))
+            return false;
+        if (memories == null) {
+            if (other.memories != null)
+                return false;
+        } else if (!memories.equals(other.memories))
+            return false;
+        return true;
+    }
+
+    
 
     
 }
