@@ -2,6 +2,9 @@ package com.mensahj.echoes_backend.Models;
 
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -23,6 +26,7 @@ public class Likes {
     @Column(nullable = false, updatable = false)
     private LocalDateTime likedAt = LocalDateTime.now();
 
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "memory_id")
     private Memories memory;

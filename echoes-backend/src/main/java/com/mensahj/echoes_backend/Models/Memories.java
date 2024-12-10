@@ -58,6 +58,7 @@ public class Memories {
     @OneToMany(mappedBy = "memory")
     private List<MemoryMetadata> memoryMetadata;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "memory")
     private List<Likes> likes = new ArrayList<>();
 
