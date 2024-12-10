@@ -11,9 +11,9 @@ import com.mensahj.echoes_backend.Repositories.TagsRepo;
 
 import jakarta.transaction.Transactional;
 
+import com.mensahj.echoes_backend.DTOs.TagsDTO;
 import com.mensahj.echoes_backend.Models.Memories;
 import com.mensahj.echoes_backend.Models.Tags;
-import com.mensahj.echoes_backend.Models.TagsDTO;
 
 @Service
 public class TagsService {

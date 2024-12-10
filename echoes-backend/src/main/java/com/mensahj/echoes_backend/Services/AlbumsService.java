@@ -6,8 +6,8 @@ import java.util.NoSuchElementException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mensahj.echoes_backend.DTOs.AlbumsDTO;
 import com.mensahj.echoes_backend.Models.Albums;
-import com.mensahj.echoes_backend.Models.AlbumsDTO;
 import com.mensahj.echoes_backend.Models.Memories;
 import com.mensahj.echoes_backend.Repositories.AlbumsRepo;
 
