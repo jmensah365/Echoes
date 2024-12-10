@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mensahj.echoes_backend.DTOs.LikesDTO;
 import com.mensahj.echoes_backend.Models.Likes;
 import com.mensahj.echoes_backend.Models.Memories;
 import com.mensahj.echoes_backend.Services.LikesService;
@@ -14,6 +15,7 @@ import com.mensahj.echoes_backend.Services.MemoryService;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -36,7 +38,7 @@ public class LikesController {
     }
 
     @PostMapping()
-    public ResponseEntity<?> likeAMemory(@RequestBody Likes like, @RequestParam Integer memoryId) {
+    public ResponseEntity<?> likeAMemory(@RequestBody LikesDTO like, @RequestParam("memoryId") Integer memoryId) {
 
         Memories memory = new Memories();
         if (memoryId != null){
@@ -47,8 +49,8 @@ public class LikesController {
         return ResponseEntity.ok(likedMemory);
     }
     
-    @DeleteMapping()
-    public ResponseEntity<Void> deleteALike(@RequestParam Integer id){
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteALike(@PathVariable Integer id){
         likesService.deleteALike(id);
         return ResponseEntity.noContent().build();
     }

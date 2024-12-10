@@ -6,6 +6,7 @@ import java.util.NoSuchElementException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mensahj.echoes_backend.DTOs.LikesDTO;
 import com.mensahj.echoes_backend.Models.Likes;
 import com.mensahj.echoes_backend.Models.Memories;
 import com.mensahj.echoes_backend.Repositories.LikesRepo;
@@ -20,7 +21,8 @@ public class LikesService {
         return likesRepo.findAll();
     }
 
-    public Likes likeAMemory(Likes like, Memories memory){
+    public Likes likeAMemory(LikesDTO likesDTO, Memories memory){
+        Likes like = new Likes();
         like.setMemory(memory);
         return likesRepo.save(like);
     }
@@ -29,4 +31,5 @@ public class LikesService {
         if(!likesRepo.existsById(id)) throw new NoSuchElementException("Like with id " + id + " does not exist");
         likesRepo.deleteById(id);
     }
+
 }
