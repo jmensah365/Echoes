@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.mensahj.echoes_backend.DTOs.AlbumsDTO;
 import com.mensahj.echoes_backend.Models.Albums;
-import com.mensahj.echoes_backend.Models.AlbumsDTO;
 import com.mensahj.echoes_backend.Models.Memories;
 import com.mensahj.echoes_backend.Services.AlbumsService;
 import com.mensahj.echoes_backend.Services.MemoryService;
