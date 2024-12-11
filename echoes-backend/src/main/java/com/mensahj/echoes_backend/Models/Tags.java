@@ -69,6 +69,47 @@ public class Tags {
         this.memories = memories;
     }
 
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((tagId == null) ? 0 : tagId.hashCode());
+        result = prime * result + ((name == null) ? 0 : name.hashCode());
+        result = prime * result + ((memories == null) ? 0 : memories.hashCode());
+        return result;
+    }
+
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Tags other = (Tags) obj;
+        if (tagId == null) {
+            if (other.tagId != null)
+                return false;
+        } else if (!tagId.equals(other.tagId))
+            return false;
+        if (name == null) {
+            if (other.name != null)
+                return false;
+        } else if (!name.equals(other.name))
+            return false;
+        if (memories == null) {
+            if (other.memories != null)
+                return false;
+        } else if (!memories.equals(other.memories))
+            return false;
+        return true;
+    }
+
+    
+
     
 
 }

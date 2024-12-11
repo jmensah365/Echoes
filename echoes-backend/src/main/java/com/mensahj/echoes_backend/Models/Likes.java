@@ -55,6 +55,43 @@ public class Likes {
         this.memory = memory;
     }
 
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((likes_id == null) ? 0 : likes_id.hashCode());
+        result = prime * result + ((likedAt == null) ? 0 : likedAt.hashCode());
+        result = prime * result + ((memory == null) ? 0 : memory.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Likes other = (Likes) obj;
+        if (likes_id == null) {
+            if (other.likes_id != null)
+                return false;
+        } else if (!likes_id.equals(other.likes_id))
+            return false;
+        if (likedAt == null) {
+            if (other.likedAt != null)
+                return false;
+        } else if (!likedAt.equals(other.likedAt))
+            return false;
+        if (memory == null) {
+            if (other.memory != null)
+                return false;
+        } else if (!memory.equals(other.memory))
+            return false;
+        return true;
+    }
+
     
 
 
