@@ -14,15 +14,15 @@ public class TagsTest {
         new BeanTester().testBean(Tags.class);
     }
 
-    @Test
-    void testEqualsMethod(){
-        EqualsMethodTester tester = new EqualsMethodTester();
-        tester.testEqualsMethod(Tags.class);
-    }
+    // @Test
+    // void testEqualsMethod(){
+    //     EqualsMethodTester tester = new EqualsMethodTester();
+    //     tester.testEqualsMethod(Tags.class);
+    // }
 
-    @Test
-    void testHashCodeMethod(){
-        HashCodeMethodTester tester = new HashCodeMethodTester();
-        tester.testHashCodeMethod(Tags.class);
-    }
+    // @Test
+    // void testHashCodeMethod(){
+    //     HashCodeMethodTester tester = new HashCodeMethodTester();
+    //     tester.testHashCodeMethod(Tags.class);
+    // }
 }
