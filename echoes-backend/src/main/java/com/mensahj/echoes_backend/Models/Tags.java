@@ -76,7 +76,6 @@ public class Tags {
         int result = 1;
         result = prime * result + ((tagId == null) ? 0 : tagId.hashCode());
         result = prime * result + ((name == null) ? 0 : name.hashCode());
-        result = prime * result + ((memories == null) ? 0 : memories.hashCode());
         return result;
     }
 
@@ -99,11 +98,6 @@ public class Tags {
             if (other.name != null)
                 return false;
         } else if (!name.equals(other.name))
-            return false;
-        if (memories == null) {
-            if (other.memories != null)
-                return false;
-        } else if (!memories.equals(other.memories))
             return false;
         return true;
     }
