@@ -1,6 +1,5 @@
 package com.mensahj.echoes_backend.ServiceTests;
 
-import org.aspectj.lang.annotation.After;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -8,7 +7,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockedStatic;
 import org.mockito.MockitoAnnotations;
-import org.springframework.data.jpa.repository.query.Meta;
 import org.springframework.mock.web.MockMultipartFile;
 
 import com.drew.imaging.ImageMetadataReader;
@@ -18,9 +16,7 @@ import com.drew.metadata.Tag;
 import com.mensahj.echoes_backend.Models.MemoryMetadata;
 import com.mensahj.echoes_backend.Services.MetadataExtractor;
 
-import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
